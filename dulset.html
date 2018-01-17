@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>CHOOKJAE</title>
@@ -11,9 +12,9 @@
 		<div class="background-o"></div>
 		<div class="gnb">
 		<ul>
-			<li><a href="about.php" class="about"><img src="img/about.png"></a></li>
-			<li><a href="teaser.php" class="teaser"><img src="img/teaser.png"></a></li>
-			<li><a href="wallpaper.php" class="wallpaper"><img src="img/wallpaper.png"></a></li>
+			<li><a href="about.html" class="about"><img src="img/about.png"></a></li>
+			<li><a href="teaser.html" class="teaser"><img src="img/teaser.png"></a></li>
+			<li><a href="wallpaper.html" class="wallpaper"><img src="img/wallpaper.png"></a></li>
 			<li><a href="index.html" class="video"><img src="img/video.png"></a></li>
 			<li class="selector">
 				<div class="site-selector">
@@ -31,7 +32,7 @@
 
 <div class="container">
 	<div class="logo">
-		<a href="index.php"><img src="img/17sp-title.png" width="150" height="107" class="sp-title"></a><br />
+		<a href="index.html"><img src="img/17sp-title.png" width="150" height="107" class="sp-title"></a><br />
 		<img src="img/sp-sub-title.png" width="40" height="87" class="sp-sub-title" style='margin-top:280px;' >
 	</div>
 
@@ -39,17 +40,30 @@
 	$(document).ready(function(){ 
 		$("a").addClass(function(index, currentClass) {
 		    var addedClass;
-		    if ( currentClass === "album") {
+		    if ( currentClass === "index") {
 		      addedClass = "active";
 		    }
 		    return addedClass;
 		});
 	});
 </script>
-		<div class="album-wrapper">
-			<div class="album-title"><img src="img/aboutin.png"></div>
+		<div class="video-wrapper">
+			<div class="movie-container">
+				<iframe width="820" height="461" src="http://www.youtube.com/embed/Tx_6Pxspurs" frameborder="0" class="movie" allowfullscreen></iframe>
+			</div>
+	 		<div class="vid-selector">
+	 			<div class="vid" data-src="http://www.youtube.com/embed/C_3bgDsUMbo">
+		 			<a href="index.html"><img src="img/vid1.png"></a>
+	 			</div>
+	 			<div class="vid active" data-src="http://www.youtube.com/embed/Tx_6Pxspurs">
+		 			<a href="#"><img src="img/vid2.png"></a>
+	 			</div>
+	 			<div class="vid" data-src="http://www.youtube.com/embed/E7sSUapl2uI">
+		 			<a href="path.html"><img src="img/vid3.png"></a>
+	 			</div>
+			</div>
 		</div>
- 			<div class="title-right">
+		 	<div class="title-right">
 		<a href="#"><img src="img/randomlogo.png" "></a>
 	</div>
 	<div class="footer">
@@ -63,6 +77,25 @@
 			<img src="img/logo.png" class="footer-logo">
 			Copyright © 2017 Wonderland for Suga & V All Rights Reserved
 	</div>
-</div>	</body>
+</div>
+ 		<script type="text/javascript">
+		$('.vid').click(function(ev) {
+
+			var src = $(this).data('src');
+
+			$('iframe').attr('src', src);
+			return ev.preventDefault();
+		});
+
+		$('.vid').each(function(idx, elem) {
+			$(elem).click(function(e) {
+				$('.vid').removeClass('active');
+				$(this).addClass('active');
+				e.preventDefault();
+			});
+		});
+
+		</script>
+	</body>
 
 </html>
